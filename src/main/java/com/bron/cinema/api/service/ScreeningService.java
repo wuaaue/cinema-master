@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class ScreeningService {
 
-    @Autowired
-    private ScreeningRepository screeningRepository;
+    private final ScreeningRepository screeningRepository;
+
+    public ScreeningService(ScreeningRepository screeningRepository) {
+        this.screeningRepository = screeningRepository;
+    }
 
     public List<Screening> getScreeningsByMovieId(Long movieId) {
         return screeningRepository.findByMovieId(movieId);

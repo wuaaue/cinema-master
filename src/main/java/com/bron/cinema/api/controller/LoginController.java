@@ -21,6 +21,9 @@ public class LoginController {
     public String login(@RequestBody UserCredentials credentials) {
         MyUser user = userRepository.findByEmail(credentials.getEmail())
                 .orElse(null);
+
+        System.out.printf(String.valueOf(user));
+
         if (user != null && passwordEncoder.matches(credentials.getPassword(), user.getPassword())) {
             return "Success";
         } else {

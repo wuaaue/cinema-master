@@ -16,11 +16,14 @@ import java.time.LocalDateTime;
 @Service
 public class ReservationService {
 
-    @Autowired
-    private ReservationRepository reservationRepository;
+    private final ReservationRepository reservationRepository;
 
-    @Autowired
-    private ScreeningRepository screeningRepository;
+    private final ScreeningRepository screeningRepository;
+
+    public ReservationService(ReservationRepository reservationRepository, ScreeningRepository screeningRepository) {
+        this.reservationRepository = reservationRepository;
+        this.screeningRepository = screeningRepository;
+    }
 
     public void makeReservation(ReservationRequest request) throws ReservationException {
         Screening screening = screeningRepository.findById(request.getScreeningId())

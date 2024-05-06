@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/api/screenings")
 public class ScreeningController {
 
-    @Autowired
-    private ScreeningService screeningService;
+    private final ScreeningService screeningService;
+
+    public ScreeningController(ScreeningService screeningService) {
+        this.screeningService = screeningService;
+    }
 
     @GetMapping("/{movieId}")
     public List<Screening> getScreeningsByMovieId(@PathVariable Long movieId) {

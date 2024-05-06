@@ -5,9 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+@Setter
+@Getter
 @Entity
 public class Screening {
 
@@ -26,52 +31,5 @@ public class Screening {
 
     private BigDecimal price;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public Timestamp getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
-    }
-
-    public int getTheaterNumber() {
-        return theaterNumber;
-    }
-
-    public void setTheaterNumber(int theaterNumber) {
-        this.theaterNumber = theaterNumber;
-    }
-
-    public int getAvailableSeats() {
-        return availableSeats;
-    }
-
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 }
 

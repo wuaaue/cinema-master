@@ -13,8 +13,12 @@ import java.util.Optional;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
-    @Autowired
-    private UserRepository repository;
+    private final UserRepository repository;
+
+    public MyUserDetailsService(UserRepository repository) {
+        this.repository = repository;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<MyUser> user = repository.findByName(username);

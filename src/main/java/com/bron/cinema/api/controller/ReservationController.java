@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/reservations")
 public class ReservationController {
 
-    @Autowired
-    private ReservationService reservationService;
+    private final ReservationService reservationService;
+
+    public ReservationController(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
 
     @PostMapping("/make")
     public ResponseEntity<String> makeReservation(@RequestBody ReservationRequest request) {
