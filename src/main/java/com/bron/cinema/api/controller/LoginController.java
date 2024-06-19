@@ -22,7 +22,9 @@ public class LoginController {
         MyUser user = userRepository.findByEmail(credentials.getEmail())
                 .orElse(null);
 
-        System.out.printf(String.valueOf(user));
+        System.out.printf("User: %s\n", user);
+        System.out.printf("User password from DB: %s\n", user != null ? user.getPassword() : "null");
+        System.out.printf("Password from credentials: %s\n", credentials.getPassword());
 
         if (user != null && passwordEncoder.matches(credentials.getPassword(), user.getPassword())) {
             return "Success";

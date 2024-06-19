@@ -21,13 +21,15 @@ public class CustomerService {
         Customer customer = new Customer();
         customer.setFirstName(customerDto.getFirstName());
         customer.setLastName(customerDto.getLastName());
-        customer.setName(customerDto.getFirstName() + " " + customerDto.getLastName()); // Установка значения поля name
+        customer.setName(customerDto.getFirstName() + " " + customerDto.getLastName());
         customer.setEmail(customerDto.getEmail());
         customer.setPhone(customerDto.getPhone());
         customer.setRoles("ROLE_USER");
-        // Хешируем пароль перед сохранением в базу данных
+
+        // Хеширование пароля
         String hashedPassword = passwordEncoder.encode(customerDto.getPassword());
         customer.setPassword(hashedPassword);
+
         customerRepository.save(customer);
     }
 }

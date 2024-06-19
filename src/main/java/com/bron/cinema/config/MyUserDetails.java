@@ -1,8 +1,4 @@
 package com.bron.cinema.config;
-
-
-
-
 import com.bron.cinema.model.MyUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
